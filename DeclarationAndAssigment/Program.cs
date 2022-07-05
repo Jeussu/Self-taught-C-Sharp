@@ -7,10 +7,10 @@ namespace DeclarationAndAssigment
     {
         class Employee
         {
-            int Id;
-            byte Title;
-            String FirstName;
-            String LastName;
+            public int Id;
+            public Title Title;
+            public String FirstName;
+            public String LastName;
             DateTime Birthday;
             char Gender;
             short CountryId;
@@ -22,6 +22,13 @@ namespace DeclarationAndAssigment
             String TaxNo;
             String SocialNumber;
             decimal Salary;
+        }
+        public enum Title
+        {
+            Mr = 2,
+            Mrs = 5,
+            Miss = 8,
+            Sir = 10
         }
         static void Main(string[] args)
         {
@@ -58,12 +65,33 @@ namespace DeclarationAndAssigment
             //{
             //    Console.WriteLine("Uppercase: {0}, Lowercase: {1}", ul.Upper, ul.Lower);
             //}
-            dynamic d;
-            d = "Hello word";
-            Console.WriteLine(d.GetType());
-            d = 100;
-            Console.WriteLine(d.GetType());
+            //dynamic d;
+            //d = "Hello word";
+            //Console.WriteLine(d.GetType());
+            //d = 100;
+            //Console.WriteLine(d.GetType());
+            //Ref vs out
+            //int input = 10;
+            //DoSomeThing(out input);
+            //Console.WriteLine("Input now {0}", input);
+            Console.WriteLine("GC Max Generation:" + GC.MaxGeneration);
+            Console.WriteLine("Total Memory:" + GC.GetTotalMemory(true));
+            Employee e = new Employee
+            {
+                Id = 1000,
+                Title = Title.Mr,
+                FirstName = "Messi",
+                LastName = "Maxi"
+            };
+            Console.WriteLine("e object Generation is: " + GC.GetGeneration(e));
+            Console.WriteLine("total memory: " + GC.GetTotalMemory(true));
+
             Console.ReadKey();
         }
+        //public static void DoSomeThing(out int i)
+        //{
+        //    i = 10;
+        //    i = i + 20;
+        //}
     }
 }
