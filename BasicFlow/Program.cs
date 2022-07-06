@@ -2,51 +2,19 @@
 
 namespace BasicFlow
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            /* Enter an age,
-             * in case, 6 <= age and age < 11, display: Element
-             * 11<= age and age < 15, display: Middle School
-             * 15<= age and age < 18, display: High School
-             * otherwise, display: Out of range
-             */
-
-            Console.WriteLine("Enter an age: ");
-            int age = Int32.Parse(Console.ReadLine());
-
-            //if (6 <= age && age < 11)
+            //for(int i = 0; i < 10; i++)
             //{
-            //    Console.WriteLine("Elementary");
+            //    Console.WriteLine(i + 1);
             //}
-            //else if (11 <= age && age < 15)
-            //{
-            //    Console.WriteLine("Middle School");
-            //}
-            //else if (15 <= age && age < 18)
-            //{
-            //    Console.WriteLine("High School");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Out of Range");
-            //}
-            switch (age)
+            string[] names = new string[] { "C.Ronaldo", "Messi" };
+            foreach (var name in names)
             {
-                case int n when (6 <= n && n < 11):
-                    Console.WriteLine("Elementary");
-                    break;
-                case int n when (11 <= n && n < 15):
-                    Console.WriteLine("Middle School");
-                    break;
-                case int n when (15 <= n && n < 18):
-                    Console.WriteLine("High School");
-                    break;
-                default:
-                    Console.WriteLine("Out of Range");
-                    break;
-            }
+                Console.WriteLine(name);
+            } 
             Console.ReadLine();
         }
     }
