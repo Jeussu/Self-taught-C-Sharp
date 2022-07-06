@@ -34,22 +34,13 @@ namespace BasicFlow
             //}
             switch (age)
             {
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
+                case int n when (6 <= n && n < 11):
                     Console.WriteLine("Elementary");
                     break;
-                case 11:
-                case 12:
-                case 13:
-                case 14:
+                case int n when (11 <= n && n < 15):
                     Console.WriteLine("Middle School");
                     break;
-                case 15:
-                case 16:
-                case 17:
+                case int n when (15 <= n && n < 18):
                     Console.WriteLine("High School");
                     break;
                 default:
