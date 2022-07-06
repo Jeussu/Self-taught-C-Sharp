@@ -6,15 +6,18 @@ namespace BasicFlow
     {
         static void Main(string[] args)
         {
-            //for(int i = 0; i < 10; i++)
-            //{
-            //    Console.WriteLine(i + 1);
-            //}
-            string[] names = new string[] { "C.Ronaldo", "Messi" };
-            foreach (var name in names)
+            int i = 1;
+            while (i<10)
             {
-                Console.WriteLine(name);
-            } 
+                Console.WriteLine(i);
+                i++;
+            }
+            i = 1;
+            do
+            {
+                Console.WriteLine(i);
+                i++;
+            } while (i <= 10);
             Console.ReadLine();
         }
     }
