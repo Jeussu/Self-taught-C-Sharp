@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "ClassLibra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeclarationAndAssigment", "DeclarationAndAssigment\DeclarationAndAssigment.csproj", "{E94E8DAE-1BAF-4DB2-AFFD-FC9A908C582A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operators", "Operators\Operators.csproj", "{E46918C8-89D0-45AD-9323-DBFDFED8BEDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operators", "Operators\Operators.csproj", "{E46918C8-89D0-45AD-9323-DBFDFED8BEDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicFlow", "BasicFlow\BasicFlow.csproj", "{8DD43C89-0C65-4B3E-A8EB-4449B0069490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicFlow", "BasicFlow\BasicFlow.csproj", "{8DD43C89-0C65-4B3E-A8EB-4449B0069490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array\Array.csproj", "{62176E63-8790-4E64-A7DE-DFCD5777910C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{8DD43C89-0C65-4B3E-A8EB-4449B0069490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DD43C89-0C65-4B3E-A8EB-4449B0069490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DD43C89-0C65-4B3E-A8EB-4449B0069490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62176E63-8790-4E64-A7DE-DFCD5777910C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62176E63-8790-4E64-A7DE-DFCD5777910C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62176E63-8790-4E64-A7DE-DFCD5777910C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62176E63-8790-4E64-A7DE-DFCD5777910C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
