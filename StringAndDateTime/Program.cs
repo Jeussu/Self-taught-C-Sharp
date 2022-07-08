@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Text;
 
 namespace StringAndDateTime
 {
@@ -77,28 +78,40 @@ namespace StringAndDateTime
 
 
             /*Demo String*/
-            String str1 = "Mourjnho is a \"special one\"";
-            String str2 = @"Mourinho is a ""special one""";
+            //String str1 = "Mourjnho is a \"special one\"";
+            //String str2 = @"Mourinho is a ""special one""";
 
-            //String str3 = "This is a string \n This is a new line";
-            String str3 = "This is a string \r Hello"; //ghi đè lên kí tự đầu tiên bắt đầu từ "T"
+            ////String str3 = "This is a string \n This is a new line";
+            //String str3 = "This is a string \r Hello"; //ghi đè lên kí tự đầu tiên bắt đầu từ "T"
 
 
-            Console.WriteLine(str1);
-            Console.WriteLine(str2);
-            Console.WriteLine(str3);
+            //Console.WriteLine(str1);
+            //Console.WriteLine(str2);
+            //Console.WriteLine(str3);
 
-            /*Demo Concat*: nối chuỗi*/
-            String str4 = "Cristinao Ronaldo is good player";
-            Console.WriteLine(String.Concat(str1, str4));
-            /*Demo substring: trả lại 1 chuỗi con từ 1 chuỗi to*/
-            String str5 = str1.Substring(0, 10);
-            Console.WriteLine(str5);
-            /*Strinformat:convert giá trị của 1 object trở thành kiểu chuỗi dựa trên format mà chúng ta chỉ định(Hay dùng)*/
-            decimal s = 100.5m;
-            Console.WriteLine("My salary is: " + s);
-            Console.WriteLine(String.Format(CultureInfo.CreateSpecificCulture("en-GB"),
-                "My salary is {0:C2}", s));
+            ///*Demo Concat*: nối chuỗi*/
+            //String str4 = "Cristinao Ronaldo is good player";
+            //Console.WriteLine(String.Concat(str1, str4));
+            ///*Demo substring: trả lại 1 chuỗi con từ 1 chuỗi to*/
+            //String str5 = str1.Substring(0, 10);
+            //Console.WriteLine(str5);
+            ///*Strinformat:convert giá trị của 1 object trở thành kiểu chuỗi dựa trên format mà chúng ta chỉ định(Hay dùng)*/
+            //decimal s = 100.5m;
+            //Console.WriteLine("My salary is: " + s);
+            //Console.WriteLine(String.Format(CultureInfo.CreateSpecificCulture("en-GB"),
+            //    "My salary is {0:C2}", s));
+
+            /*Demo StringBuilder*/
+            StringBuilder greatPlayers = new StringBuilder("L.Messi is a great player");
+            //Append
+            greatPlayers.Append("C.Ronaldo is also great.");
+            Console.WriteLine(greatPlayers);
+
+            //AppendFormat
+            StringBuilder t = new StringBuilder("My Salary is: ");
+            Console.WriteLine(t.AppendFormat("{0:C2}", 2500));
+            //Replace
+            Console.WriteLine(greatPlayers.Replace("great", "the greatest"));
             Console.ReadLine();
         }
     }
