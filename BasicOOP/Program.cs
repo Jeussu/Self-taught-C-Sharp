@@ -6,12 +6,19 @@ namespace BasicOOP
     {
         static void Main(string[] args)
         {
-            Dog d = new Dog(14, "Bruno", "BullDog");
-            //setSize obj d
-            d.SetSize(10);
-            Console.WriteLine(d.GetSize());
-            d.bark();
-            //call method
+            //Dog d = new Dog(14, "Bruno", "BullDog");
+            ////setSize obj d
+            //d.SetSize(10);
+            //Console.WriteLine(d.GetSize());
+            //d.bark();
+            ////call method
+            ///
+            Lion leo = new Lion();
+            leo.Food = "Meat";
+
+            leo.MakeNoise();
+            leo.Eat();
+            leo.Roam();
             Console.ReadKey();
         }
     }
