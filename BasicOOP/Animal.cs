@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasicOOP
-{
-    public class Animal
+{//Demo Abstraction thêm từ khoá Abstraction trước class 
+    public abstract class Animal
     {
         public string Picture { get; set; }
         public string Food { get; set; }
@@ -29,7 +29,7 @@ namespace BasicOOP
             Console.WriteLine("Roaming...");
         }
 
-        public void Sleep()
+        public virtual void Sleep()
         {
             Console.WriteLine("Sleeping...");
         }
