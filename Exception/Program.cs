@@ -6,36 +6,43 @@ namespace Exception1
     {
         static void Main(string[] args)
         {
-            /* Allow user enter name and age. If age <0 throw an exception with name and age + "It cannot"
-             less than zero
-             */
+            Console.WriteLine("Enter HttpRequestCode: ");
+            var httpRequestCode = Console.ReadLine();
+
             try
             {
-                Console.WriteLine("Enter a name: ");
-                var name = Console.ReadLine();
-                Console.WriteLine("Enter your age");
-                int age = Int32.Parse(Console.ReadLine());
-                if (age < 0)
-                {
-                    throw new CustomException("{0}' s age is {1}. It cannot be less than zero", name, age);
-                }
+                throw new Exception(httpRequestCode.ToString());
             }
-            catch (CustomException ex)
+            // demo exception fillter
+            catch (Exception e) when (e.Message.Equals("400"))
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Bad Request");
             }
-
-            Console.ReadKey();
+            catch (Exception e) when (e.Message.Equals("401"))
+            {
+                Console.WriteLine("Unauthoroizied");
+            }
+            catch (Exception e) when (e.Message.Equals("200"))
+            {
+                Console.WriteLine("Successfull");
+            }
+            //catch (Exception e) 
+            //{
+            //    if (e.Message.Equals("400"))
+            //    {
+            //        Console.WriteLine("Bad Request");
+            //    }
+            //    else if (e.Message.Equals("401"))
+            //    {
+            //        Console.WriteLine("Unauthoroizied");
+            //    }
+            //    else if (e.Message.Equals("200"))
+            //    {
+            //        Console.WriteLine("Successfull");
+            //    }
+            //    else
+            //        throw e;
         }
-
-        public class CustomException : Exception
-        {
-            public CustomException() : base() { }
-            public CustomException(string message) : base(message) { }
-            public CustomException(string format, params object[] arguments) : base(string.Format(format, arguments))
-            {
-
-            }
         }
     }
-}
+
