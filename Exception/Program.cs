@@ -26,6 +26,10 @@ namespace Exception
                 Console.WriteLine("TargetSite: {0}", e.TargetSite);// chỉ ra method gây ra exception
                 Console.WriteLine("InnerException: {0}", e.InnerException);
             }
+            catch(FormatException ex)
+            {//convert trường hợp user nhập string sang int
+                Console.WriteLine("you have enter invalid param {0}", ex.Message);
+            }
             Console.ReadLine();
         }
     }
