@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace GenericAndCollection
 {
@@ -8,31 +9,23 @@ namespace GenericAndCollection
         static void Main(string[] args)
         {
 
-            /*//Demo Hashtable
+            /*//Demo Dictionary
             1. Declaration
             2. Add
             3. Remove
-            4. Check existing key/value
-            5. Get ICollection of keys / value
-            6. Clear
+            4. Foreach to access.
              */ 
-           
-            Hashtable ht = new Hashtable();
-            ht.Add(1, "One");
-            ht.Add(2, "Two");
-            ht.Add(3, "Three");
+           IDictionary<int, string> demo = new Dictionary<int, string>();
+            demo.Add(1, "One");
+            demo.Add(2, "Two");
+            demo.Add(3, "Three");
 
-            ht.Remove(1);
-            Console.WriteLine("1 exists? " + ht.ContainsKey(1));
-
-            var keys = ht.Keys;
-            foreach (var key in keys)
+            demo.Remove(3);
+            foreach (var item in demo)
             {
-                Console.WriteLine("Key is {0} and value is {1}", key, ht[key]);
+                Console.WriteLine("Key is {0}, value is {1}", item.Key, item.Value);
             }
-
-            ht.Clear();
-            Console.WriteLine("After clear {0}", ht.Count);
+            
     
             Console.ReadLine();
         }
