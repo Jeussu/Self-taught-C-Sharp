@@ -8,36 +8,32 @@ namespace GenericAndCollection
         static void Main(string[] args)
         {
 
-            /*//Demo SortedList
-            1. Declaration and Add
-            2. Access by key
-            3. Access by index
-            4. Check existing key
-            5. Clear
-             */
-            SortedList sl = new SortedList();
-            sl.Add(5, "Five");
-            sl.Add(4, "Four");
-            sl.Add(7, "Seven");
-            sl.Add(8, "Eight");
+            /*//Demo Hashtable
+            1. Declaration
+            2. Add
+            3. Remove
+            4. Check existing key/value
+            5. Get ICollection of keys / value
+            6. Clear
+             */ 
+           
+            Hashtable ht = new Hashtable();
+            ht.Add(1, "One");
+            ht.Add(2, "Two");
+            ht.Add(3, "Three");
 
-            var keys = sl.Keys;
+            ht.Remove(1);
+            Console.WriteLine("1 exists? " + ht.ContainsKey(1));
+
+            var keys = ht.Keys;
             foreach (var key in keys)
             {
-                Console.WriteLine("Key is {0}, value is {1}", key, sl[key]);
+                Console.WriteLine("Key is {0} and value is {1}", key, ht[key]);
             }
 
-            Console.WriteLine("-----------------");
-
-            //Getby index
-            for (int i = 0; i < sl.Count; i++)
-            {
-                Console.WriteLine("Key is {0}, value is {1}", sl.GetKey(i), sl.GetByIndex(i));
-            }
-
-            Console.WriteLine("6 is exists? " + sl.ContainsKey(6));
-            sl.Clear();
-            Console.WriteLine("After clearing" + sl.Count);
+            ht.Clear();
+            Console.WriteLine("After clear {0}", ht.Count);
+    
             Console.ReadLine();
         }
     }
