@@ -10,22 +10,21 @@ namespace OtherFeatures
     {
         static void Main(string[] args)
         {
-            
-            Employee e = new Employee();
-            e.Email = "@fjskaj";
 
-            ValidationContext validationContext = new ValidationContext(e, null, null);
-            List<ValidationResult> validationResults = new List<ValidationResult>();
-
-            bool valid = Validator.TryValidateObject(e, validationContext, validationResults, true);
-            if (!valid)
+            //demo anonymous types
+            var player = new
             {
-                foreach (var vr in validationResults)
-                {
-                    Console.WriteLine(vr.ErrorMessage);
-                }
-            }
+                firstName = "Tien Dung",
+                lastName = "Bui"
+            };
+
+            PrintName(player);
             Console.ReadKey();
+        }
+        public static void PrintName(dynamic o)
+        {
+
+            Console.WriteLine("Player name is {0} {1}", o.firstName, o.lastName);
         }
     }
 }
