@@ -1,61 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace OtherFeatures
 {
-    //Demo StringInterporation
+    //Demo Labda expression
 
     internal class Program
     {
-        // publisher
-        // PrintHelper class that prints intergers in a format.
-        // It includes a beforePrintEvent to notify the subscriber of beforePrint event before it going to print the numbers
-        public class PrintHelper
+        public class Student
         {
-            public delegate void BeforePrint();
-            //Declare event of type delegate
-            public event BeforePrint beforePrintEvent;
-            public void PrintNumber(int num)
-            {
-                // call delegate method bẻoe going to print
-                if (beforePrintEvent != null)
-                    beforePrintEvent();
-
-                Console.WriteLine("Number: {0, 12:N0}", num);
-
-            }
-        }
-        //subcriber 
-        class Number
-        {
-            private PrintHelper _printHelper;
-            private int _value;
-
-            public Number(int val)
-            {
-                _value = val;
-
-                _printHelper = new PrintHelper();
-                //subcriber to beforePrintEvent event
-                _printHelper.beforePrintEvent += printHelper_beforePrintEvent;
-            }
-
-            void printHelper_beforePrintEvent()
-            {
-                Console.WriteLine("BeforePrintEventHandle: PrintHepler is going to print a value");
-            }
-
-            public void PrintNumber()
-            {
-                _printHelper.PrintNumber(_value);
-            }
+            public string Name { get; set; }
+            public int Age { get; set; }
         }
 
         static void Main(string[] args)
         {
-            Number myNumber = new Number(100000); 
-            myNumber.PrintNumber();
+            //Write a lamda expression
+            // Using lamda with LINQ
+            Func<Student, bool> isTenenage = s => s.Age > 12 && s.Age < 20;
+
+            Student mike = new Student() { Name = "Mike", Age = 18 };
+            Console.WriteLine(isTenenage(mike));
+
+            IList<Student> students = new List<Student>()
+            {
+                new Student() { Name = "Mike", Age = 18 },
+                new Student() { Name = "Huong", Age = 20 },
+                new Student() { Name = "Lan", Age = 16 },
+                new Student() { Name = "Vy", Age = 21 },
+            };
+            //use linq to query get student is tenenage
+            var teenagers = students.Where(isTenenage).ToList();
+
+            foreach (var teen in teenagers)
+            {
+                Console.WriteLine("Name {0} and age {1}", teen.Name, teen.Age);
+            }
             Console.ReadKey();
         }
 
