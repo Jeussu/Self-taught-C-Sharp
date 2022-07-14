@@ -8,29 +8,54 @@ namespace OtherFeatures
 
     internal class Program
     {
-        public delegate void Print(int value);
-        public static void PrintNumber(int num)
+        // publisher
+        // PrintHelper class that prints intergers in a format.
+        // It includes a beforePrintEvent to notify the subscriber of beforePrint event before it going to print the numbers
+        public class PrintHelper
         {
-            Console.WriteLine("Number: {0, -12:NO}", num);
-        }
+            public delegate void BeforePrint();
+            //Declare event of type delegate
+            public event BeforePrint beforePrintEvent;
+            public void PrintNumber(int num)
+            {
+                // call delegate method bẻoe going to print
+                if (beforePrintEvent != null)
+                    beforePrintEvent();
 
-        public static void PrintMoney(int money)
-        {
-            Console.WriteLine("Money: {0:C}", money);
-        }
+                Console.WriteLine("Number: {0, 12:N0}", num);
 
-        public static void PrintHelper(Print delegateFunction, int numberToPrint)
+            }
+        }
+        //subcriber 
+        class Number
         {
-            delegateFunction(numberToPrint);
+            private PrintHelper _printHelper;
+            private int _value;
+
+            public Number(int val)
+            {
+                _value = val;
+
+                _printHelper = new PrintHelper();
+                //subcriber to beforePrintEvent event
+                _printHelper.beforePrintEvent += printHelper_beforePrintEvent;
+            }
+
+            void printHelper_beforePrintEvent()
+            {
+                Console.WriteLine("BeforePrintEventHandle: PrintHepler is going to print a value");
+            }
+
+            public void PrintNumber()
+            {
+                _printHelper.PrintNumber(_value);
+            }
         }
 
         static void Main(string[] args)
         {
-
-            //demo Delegate
-            // passing a method as a parameter to another method.
-            PrintHelper(PrintNumber, 1000);
-            PrintHelper(PrintMoney, 200);
+            Number myNumber = new Number(100000); 
+            myNumber.PrintNumber();
             Console.ReadKey();
         }
 
