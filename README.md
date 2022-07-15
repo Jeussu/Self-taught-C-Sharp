@@ -1,19 +1,31 @@
 FirstProgram C#
 <h2>CourseIntroduction</h2>
-![image](https://user-images.githubusercontent.com/94780400/179254303-91c84885-3eae-428d-88bc-9b0d334fe83d.png)
+
+
+
 Mục tiêu khoá học:
-![image](https://user-images.githubusercontent.com/94780400/179254328-1fab18fd-bf7a-4713-b82e-ff2868605790.png)
+
+
+
 C# features
-![image](https://user-images.githubusercontent.com/94780400/179254360-974fcd5c-cc17-44eb-98d9-4ead8931e47a.png)
+
+
+
 •	.NET Framework là programing framework cho phép chúng ta xây dựng và triển khai ứng dụng được viết bằng .NET
 •	Sử dụng .NET Framework có thể giảm thiểu thời gian để viết và triển khai ứng dụng phần mềm
 •	.NET Framework có 2 phần chính
 -	Common language runtime(CLR): được gọi là execution engine chạy trên c#
 -	Framework class library(FCL): là một thư viện của class, interface, value type cho phép tương tác với hệ thống. VD:system.io
-![image](https://user-images.githubusercontent.com/94780400/179254398-832f2f27-6ffc-40cf-b71e-1e45ab39c8d0.png)
-![image](https://user-images.githubusercontent.com/94780400/179254406-7e12a396-e1d0-4361-a970-13dfd3a0a899.png)
+
+
+
+
+
+
 •	C# codeSnippet là đoạn code dựng sẵn, bạn có thể quickly insert vào trong source code
-![image](https://user-images.githubusercontent.com/94780400/179254633-be038d90-91a8-4781-ab02-c3d8976c74b6.png)
+
+
+
 <h2>1 6 Nuget</h2>
 Nuget là cơ chế cho phép lập trình viên có thể tạo, chia sẻ library hữu ích, những library này được gọi là packages
 ![image](https://user-images.githubusercontent.com/94780400/179254710-a2a093f6-709c-4a1f-842e-47984c219f1c.png)
@@ -409,7 +421,8 @@ Lập trình hướng đối tượng cho phép lập trình viên có thể vi�
 3 3 Namespace
 •	Namespace được thiết kế để tránh class trùng tên với nhau và giảm thiểu conflict giữa các class. Khi mà một class được định nghĩa trong một namespace thì nó sẽ không bị conflict với class trùng tên
 •	Ví dụ về Namespace 
-3 4 Class Lab Edited
 
+3 4 Class Lab Edited
+d
 
 
