@@ -8,30 +8,22 @@ namespace BasicIO
     {
         static void Main(string[] args)
         {
-           FileInfo fileInfo = new FileInfo(@"C:\IO\demo.txt");
-            if (!fileInfo.Exists)
+            //using (StreamWriter streamWriter = new StreamWriter(@"C:\IO\demo2.txt"))
+            //{
+            //    streamWriter.WriteLine("Let it be");
+            //    streamWriter.WriteLine("Tobe or not tobe");
+            //}
+
+            using (StreamReader streamReader = new StreamReader(@"C:\IO\demo2.txt"))
             {
-                fileInfo.Create();
+                string s = "";
+              while((s = streamReader.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
             }
 
-            //var fileStream = fileInfo.Open(FileMode.Append, FileAccess.Write);
-            //string someText = "This is some text";
-
-            //byte[] someTextInBytes = new UTF8Encoding(true).GetBytes(someText);
-            //fileStream.Write(someTextInBytes, 0, someTextInBytes.Length);
-
-
-            var fileStream2 = fileInfo.OpenRead();
-            byte[] b = new byte[1024];
-            UTF8Encoding temp = new UTF8Encoding(true);
-
-            while(fileStream2.Read(b, 0, b.Length) > 0)
-            {
-                Console.WriteLine(temp.GetString(b));
-            }
-
-
-
+            Console.WriteLine("Done");
             Console.ReadKey();
         }
     }
