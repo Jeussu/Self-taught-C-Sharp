@@ -76,7 +76,8 @@ Danh sách từ khoá
 ![image](https://user-images.githubusercontent.com/94780400/179255515-6dfbbc98-abfc-489e-a5a6-68f12c488ceb.png)
 •	Nên sử dụng tên của enums ở dạng singular số ít
 ![image](https://user-images.githubusercontent.com/94780400/179255551-976725b3-767c-49fe-931f-75e444badbf0.png)
-•	Không sử dụng suffix cho enum 
+•	Không sử dụng suffix cho enum
+
 ![image](https://user-images.githubusercontent.com/94780400/179255595-af4bb5f4-bf01-4d8b-94a9-52186b16bf4f.png)
 4 7 DataType
 •	Data type: là phân loại kiểu dữ liệu và mục đích sử dụng cho từng loại và chia dữ liệu dưới dạng số, dạng chuỗi, thời gian
