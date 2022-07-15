@@ -9,19 +9,19 @@ namespace Concurrency
 {
     public class DemoJoin
     {
-        static void Main(string[] args)
-        {
-            Thread t1 = new Thread(MethodA);
-            Thread t2 = new Thread(MethodB);
-            Thread t3 = new Thread(MethodC);
+        //static void Main(string[] args)
+        //{
+        //    Thread t1 = new Thread(MethodA);
+        //    Thread t2 = new Thread(MethodB);
+        //    Thread t3 = new Thread(MethodC);
             
-            t1.Start();
-            t2.Start();
+        //    t1.Start();
+        //    t2.Start();
             
-            t2.Join();
+        //    t2.Join();
 
-            t3.Start();
-        }
+        //    t3.Start();
+        //}
 
         static void MethodA()
         {
