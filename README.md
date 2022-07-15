@@ -1,3 +1,5 @@
+[Note C#.pdf](https://github.com/Jeussu/Self-taught-C-Sharp/files/9122283/Note.C.pdf)
+
 FirstProgram C#
 <h2>CourseIntroduction</h2>
 Mục tiêu khoá học:
