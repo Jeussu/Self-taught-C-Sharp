@@ -1,15 +1,13 @@
-[Note C#.pdf](https://github.com/Jeussu/Self-taught-C-Sharp/files/9122283/Note.C.pdf)
-
 FirstProgram C#
 <h2>CourseIntroduction</h2>
 Mục tiêu khoá học:
-C# features
-•	.NET Framework là programing framework cho phép chúng ta xây dựng và triển khai ứng dụng được viết bằng .NET
-•	Sử dụng .NET Framework có thể giảm thiểu thời gian để viết và triển khai ứng dụng phần mềm
-•	.NET Framework có 2 phần chính
--	Common language runtime(CLR): được gọi là execution engine chạy trên c#
--	Framework class library(FCL): là một thư viện của class, interface, value type cho phép tương tác với hệ thống. VD:system.io
-•	C# codeSnippet là đoạn code dựng sẵn, bạn có thể quickly insert vào trong source code
+C# features<br>
+•	.NET Framework là programing framework cho phép chúng ta xây dựng và triển khai ứng dụng được viết bằng .NET<br>
+•	Sử dụng .NET Framework có thể giảm thiểu thời gian để viết và triển khai ứng dụng phần mềm<br>
+•	.NET Framework có 2 phần chính<br>
+-	Common language runtime(CLR): được gọi là execution engine chạy trên c#<br>
+-	Framework class library(FCL): là một thư viện của class, interface, value type cho phép tương tác với hệ thống. VD:system.io<br>
+•	C# codeSnippet là đoạn code dựng sẵn, bạn có thể quickly insert vào trong source code<br>
 <h2>1 6 Nuget</h2>
 Nuget là cơ chế cho phép lập trình viên có thể tạo, chia sẻ library hữu ích, những library này được gọi là packages
 ![image](https://user-images.githubusercontent.com/94780400/179254710-a2a093f6-709c-4a1f-842e-47984c219f1c.png)
