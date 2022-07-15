@@ -403,8 +403,565 @@ Lập trình hướng đối tượng cho phép lập trình viên có thể vi�
 3 3 Namespace
 •	Namespace được thiết kế để tránh class trùng tên với nhau và giảm thiểu conflict giữa các class. Khi mà một class được định nghĩa trong một namespace thì nó sẽ không bị conflict với class trùng tên
 •	Ví dụ về Namespace 
-
 3 4 Class Lab Edited
+3 4 Class Lab Edited
+•	 
+3 5 PropertiesAndMethods
+•	Object có 2 thành phần chính:
+-	State(Trạng thái), state được biểu thị thông instance variable hay còn gọi là properties hoặc attribute
+-	Hành xử của object(Behavior)(Method)
+•	Những method trong 1 class có thể sử dụng attribute value và nó sẽ thay đổi object state đó
+•	Chính vì thay đổi được state đó nên những object có cùng 1 kiểu có thể hành xử khác nhau 
+ 
+
+ 
+
+•	Giữa method và properties có quan hệ 2 chiều, thì method có thể thay đổi properties của 1 object và ngược lại properties có thể ảnh hưởng đến method. Chính vì thế object có cùng kiểu nhưng có thể hành xử khác nhau
+3 6 Encapsulation
+•	Tính đóng gói: được sử dụng để che giấu thông tin trong 1 object, ví dụ có 1 attribute và không muốn visible ra bên ngoài thì chúng ta có thể bundle nó vào trong method và method đó sẽ đọc và ghi tới attribute đó và thế giới bên ngoài sẽ chỉ làm việc với method này thôi và không làm việc với attribute
+•	Encapsulation/ Information Hiding
+ 
+-	Set thuộc tính method là private
+•	Ưu điểm của Advantages
+-	Tất cả độ phức tạp của code sẽ được ẩn giấu bên trong objet và client chỉ việc sử dụng mà không cần biết đến bên trong
+-	Gây ra ít lỗi
+3 7 AccessModifiers
+•	Access Modifiers là keywords set ra mức độ truy cập đến class, method, và attribute. accessModifiers được đưa ra để thực hiện tính đóng gói trong oop
+•	C# cung cấp 4 loại accessmodifiers chính:
+-	Public: mức độ truy cập ở bất cứ đâu và bởi bất cứ ai, độ bảo mất thấp nhất
+-	Protected: khi một class,method,attribute được set là protected thì có nghĩa là class,method,attribute này chỉ được truy cập bởi chính class đó hoặc class con kế thừa từ class cha
+-	Internal: khi sử dụng internal thì quyền truy cập chỉ trong nội assembly
+-	Private: chỉ truy cập nội bên trong object đó và bên ngoài không thể truy cập vào
+•	Khi không chỉ định ra accessmodifiers cho class thì mặc định là internal
+•	Default access modifiers cho attribute,method, constructor  của class là private
+ 
+3 9 Inheritance
+•	Tính kế thừa: sẽ cho phép bạn định nghĩa ra lớp con có thể sử dụng lại hoặc mở rộng sửa đổi behavior lớp cha. Tính kế thừa này cũng giống như trong thực tế ngoài đời song: ví dụ con cái kế thừa đặc tính của cha mẹ như hình dáng, màu mắt, màu tóc
+•	Những class mà member của nó được kế thừa thì chúng ta gọi là lớp cha hay còn gọi là base class
+•	Còn những lớp con kế thừa từ lớp cha thì chúng ta gọi là lớp con hay derived
+•	C# nói riêng và .NET nói chung chỉ hỗ trợ single inheritance  có nghĩa là một lớp con chỉ có thể kế thừa từ một lớp cha duy nhất, nhưng một lớp cha thì có thể có nhiều lớp con
+•	Ví dụ: 
+ 
+1.	Tìm ra đặc tính chung của object
+-	Picture
+-	Food
+-	Hunger: biểu thị mức độ đói của con vật đó
+-	Boundaries: vùng không gian cho phép con vật đó đi lại
+-	Location: toạ độ
+ 
+2.	Tìm ra behavior chung:
+-	makeNoise(): tạo ra âm thanh
+-	eat(): việc ăn của từng loại con vật
+-	sleep(): ngủ
+-	roam: kiểu đi lang thang của từng con
+ 
+3.	Design class
+ 
+4.	Tạo hierarchy
+ 
+5.	Những behavior nào nên overrides
+-	Overrides Phương thức makeNoise,eat
+ 
+6.	Refine hierarchy
+ 
+-	Nên overrides lại phương thức roam()
+•	Lợi ích của tính kế thừa 
+-	Nhờ có kế thừa mà chúng ta có thể minimize được code bị trùng lặp, tránh dư thừa
+-	Data hiding: có những dữ liệu mà chúng ta có thể private ở lớp cha mà lớp con không thể thay đổi được
+-	Overriding: lớp cha define ra phương thức và thuộc tính nhưng việc implement một cách tường minh thì chúng ta sẽ để ở lớp con
+3 12 Abstraction
+•	Abstraction: tính trừu tượng hoá sẽ tập trung vào quá trình che giấu đi những chi tiết không cần thiết và sẽ thể hiện ra bên ngoài đặc tính cơ bản của object cụ thể
+•	Ví dụ class car được tạo ra bởi rất nhiều thành phần như động cơ, hộp số, vô lăng.v.v… tuy nhiên khi nói đến oto chỉ nói đến thành phần cơ bản nhất như nó có động cơ, hộp số thay vì đi sâu vào bên trong và đưa ra vấn đề làm sao để oto chạy và khởi động động cơ. Thì đây chính là trừu tượng hoá 
+•	Về mặt ngữ nghĩa thì trừu tượng có nghĩa là liên quan đến ý tưởng, concept hơn là liên quan đến instance cụ thể
+•	Trong lập trình chúng ta có thể áp dụng tính trừu tượng bằng cách tạo ra class sẽ không liên quan gì đến instance cụ thể nào
+ 
+Animal ở đây là abstraction class
+•	Abstraction vs Encapsulation
+-	Cả 2 đều nhằm mục đích che giấu thông tin tới thế giới bên ngoài
+•	Khác biệt giữa Abstraction vs Encapsulation
+-	Abstraction giải quyết việc che giấu thông tin ở mức design. Encapsulation giải quyết việc che giấu thông tin ở mức triển khai(implementation level)
+-	ở mức thiết kế abstraction có thể tạo ra class là abstraction bằng cách sử dụng từ khoá abstract hoặc sử dụng interface. Còn Encapsulation sẽ được implement bằng cách sử dụng access modifiers(Private, protected)
+3 14 Polymorphism
+•	Polymorphism: tính đa hình có nghĩa là 1 object có thể hành xử dưới nhiều dạng thức khác nhau hoặc chúng ta có thể nói là với cùng 1 method và 1 properties thì nó có thể thực thi khác nhau phụ thuộc vào loại object ở thời điểm runtime thực thi method và properties đó
+•	Ví dụ: cùng 1 người thì người đó có thể hành xử như một người con ở trong gia đình, tuy nhiên cùng thời điểm thì người đó hành xử như một nhân viên tại văn phòng
+ 
+ 
+	Cùng gọi đến 1 phương thức nhưng kết quả hiện ra lại tuỳ thuộc vào instance lúc tạo thì đây chính là tính đa hình
+3 15 Inteface
+ 
+•	Ví dụ yêu cầu chương trình PetShop phải có 2 behavior
+-	beFriendly()
+-	Play()
+ 
+•	Xử lý: tiếp cận từ trên xuống thêm 2 phương thức ở class animal
+-	Ưu điểm của cách này bao gồm: tất cả class đều đc kế thừa và chương trình PetShop hoàn thành được tính đa hình của nó
+-	Nhược điểm: class Hippo, lion, wolf cũng là vật nuôi thì nghe có vẻ không hợp lý
+ 
+•	Cách tiếp cận thứ 2:  đi từ dưới lên, có thể con chó hoặc con mèo là vật nuôi thì chúng ta có thể đẩy method đó vào cat và dog
+-	Ưu điểm là : Hippo,lion,wolf không còn là vật nuôi
+-	Nhược điểm: tuy nhiên lại làm mất tính đa hình đã thiết kế trước đó
+ 
+	Những pet behavior chỉ nằm trong class pet mà thôi	và những class nào vừa là pet thì sẽ phải kế thừa cả pet và animal, ví dụ cat ở đây kế thừa từ pet và kế thừa từ feline và dog cũng tương tự. Thì cách kế thừa này sẽ đảm bảo tính toàn vẹn(polimorphism) và tính kế thừa, tuy nhiên có 1 vấn đề 1 class chỉ đc kế thừa từ 1 class cha và giờ phải làm sao
+	Thì bây giờ khái niệm interface ra đời để vượt qua vấn đề trên. Interface sẽ định nghĩa ra các properties , method, event mà chúng ta gọi là member của interface và các interface này sẽ chỉ chứa các khai báo về các member này mà thôi. Còn việc implement chi tiết các member này sẽ do class kế thừa định nghĩa ra
+•	 
+-	Quay lại vấn đề: không phải tạo ra class pet nữa mà tạo ra interface có tên là pet và lúc đó cat sẽ kế thừa từ pet và cả class Feline
+13	 OverloadVideo
+•	Polymorphism có nghĩa là object có thể hành xử dưới nhiều dạng thức khác nhau, trong C# có 2 loại Polymorphism
+•	Static Polymorphism: đa hình tĩnh thì việc quyết định gọi method nào của object tức là hành xử của object đấy sẽ được quyết định ở thời điểm compile. Chính vì vậy static polymorphism được gọi là compile polymorphism, để thực thi đa hình tĩnh này chúng ta cần phương pháp overloading(nạp chồng). Trong overloading có 2 kiểu 
+-	Method overloading:
+-	Operator overloading:
+•	Dynamic Polymorphism: đa hình động quyết định xem gọi method vào, hành xử nào của 1 object được quyết định ở thời điểm runtime. Để thực thi Dynamic Polymorphism thì chúng ta sử dụng :
+-	Method overriding
+•	Method overloading cho phép chúng ta tạo ra nhiều method trong cùng một class có cùng tên nhưng khác nhau về parameters và type truyền vào. Có thể thực thi method overloading bằng 1 trong 3 cách sau
+-	Thay đổi số lượng parameter cho các method ở trong class đó
+-	Thay đổi order thứ tự của parameter đó 
+-	Sử dụng loại datatype khác nhau cho parameter
+-	Ví dụ:
+ 
+13 3 ConstructorOverloadingVideo
+•	Constructor Overloading là một công nghệ cho phép chúng ta có thể tạo ra nhiều constructor nó chỉ  khác nhau ở tập hợp parameter truyền vào cho constructor. Với việc sử dụng constructor overloading thì cho phép chúng ta sử dụng class theo nhiều khía cạnh khác nhau
+ 
+-	Tạo class rectangle thì trong đó có 2 properties là chiều cao và rộng, sau đó thì có một constructor truyền vào 2 biến chiều cao và chiều rộng để mình set giá trị cho chiều cao và rộng của rectangle này
+-	Tiếp theo có constructor thứ 2: làm nhiệm vụ tạo ra hình vuông(trường hợp đặc biệt), chiều cao rộng bằng nhau, thì với hình vuông lúc này sẽ chỉ cần truyền vào thông số là size và sau đó set chiều rộng và chiều cao cùng bằng giá trị là size
+	Tạo ra constructor overloading, tạo ra 2 constructor chỉ khác nhau ở số lượng parameter truyền vào và với việc tạo ra 2 constructor thì mình có thể sử dụng class như một hình chữ nhật hoặc sử dụng class này như hình vuông
+•	Constructor calling: trong thực tế tạo ra class có thể có rất nhiều properties trong class đó thì constructor có thể trở nên rất phức tạp, rất lớn với nhiều parameter và khi chúng ta sử dụng constructor overloading thì các constructor này sẽ lặp đi lặp lại khiến chúng ta chán nản khi code. Thì để tránh điều này thì C# cho phép chúng ta tạo ra một constructor bằng việc gọi một constructor sẵn có
+-	Cú pháp: 
+ 
+Trong đó public access modifiers + constructor(truyền vào tham số): từ khoá this(truyền vào danh sách tham số). Lưu ý parameter 2 phải là tập con của parameter 1
+ 
+13 5 MethodOverridingVideo
+•	Method overriding được sử dụng để tạo ra dynamic polymorphism tức là 1 object có thể gọi đến một method của behavior của nó tại thời điểm runtime, để thực hiện việc đó method overriding cho phép chúng ta có thể tạo ra method ở lớp con có cùng tên, cùng parameter, cùng giá trị trả về giống như lớp cha(base class)
+-	Method overriding chỉ được thực thi ở lớp con, chúng ta không thể overriding một method trong cùng 1 class
+-	Một method ở lớp cha muốn cho lớp con có thể overriding thì method đó cần phải dùng 1 trong 2 tùw khoá là virtual hoặc abstract
+•	Ví dụ:
+ 
+13 7 Overload vs OverrideVideo
+•	So sánh Overload và Override
+•	Giống nhau:
+-	Cùng thực thi tính đa hình trong lập trình hướng đối tượng 
+•	Khác nhau: 
+	Overload: 
+-	Cho phép chúng ta tạo ra nhiều method trong cùng một class có cùng tên nhưng khác tham số truyền vào và kiểu dữ liệu truyền vào
+	Override:
+-	Cho phép chúng ta tạo ra method ở trong lớp con có cùng tên, cùng tham số và cùng kiểu dữ liệu trả về giống như lớp cha
+-	Khi override một method ở lớp con thì method ở class chả phải kèm theo từ khoá virtual hoặc abstract
+•	Virtual Method
+-	Virtual method có thể implement code trong virtual method và virtual method có thể nằm trong abstract class
+-	Không bắt buộc lớp con phải override virtual method đó
+•	Abstract method
+-	Không có implementation
+-	 Bắt buộc lớp con phải override bởi vì không có implementation
+13 8 StaticMethodVideo
+•	Static method hay còn gọi là class method
+ 
+•	Cho ví dụ sau: có biến x kiểu double và sau đó gán giá trị của x = Math(class dựng sẵn của C#) và trong class Math này gọi đến method Round sẽ làm nhiệm vụ làm tròn con số(truyền vào là 100.5). 
+•	Tiếp theo khai báo biến y kiểu int và cũng gọi method là abs(tính trị tuyệt đối trong class math) và truyền giá trị -10
+	Khi in giá trị x,y ra màn hình thì sẽ trả lại giá trị x = 100; y = 10
+•	Static method có thể hiểu là method có thể chạy mà không cần quan tâm tới instance
+ 
+•	Regular method
+-	Một instance variable sẽ affect behavior của một method. Như trong ví dụ trên nếu thay đổi tên thì sẽ thay đổi nội dung greeting
+-	Regular method sẽ cần gọi nó từ instance
+•	Static method
+-	Không thể access tới variable của class, nó sẽ chỉ quan tâm tới parameter truyền vào cho nó mà thôi
+-	Có thể sử dụng luôn class và gọi đến method đó
+ 
+	Một static method không thể sử dụng instance variable hoặc instance method
+13 9 StaticVariableVideo
+•	Static variable còn được gọi là class variable, static variable phụ thuộc vào class chứ không phụ thuộc vào object cụ thể nào
+•	Sử dụng static variable như một bản copy được sử dụng giữa instance của class
+•	Ví dụ:
+ 
+13 10 StaticClassVideo
+•	Static class là một class mà chúng ta không thể tạo object từ nó(không thể instantiated). Một static class chỉ chứa một static member(chỉ chứa static variable hoặc static method). Static class có 2 đặc điểm:
+-	Static class là sealed tức là không thể tạo ra class kế thừa từ static class
+-	Static class không chứa instance constructor
+ 
+13 12 SealedVideo
+•	Sealed on a class: có thể áp dụng được ở mức class, method, properties, khi mà sử dụng từ khoá sealed cho một class thì chúng ta muốn ngăn class khác có thể kế thừa class sealed
+ 
+•	Sử dụng sealed cho method hoặc properties đã override virtual method hoặc property ở lớp base class
+•	Sử dụng sealed trên method và property cho phép class khác kế thừa class của bạn, tuy nhiên ngăn class kế thừa override virtual method
+ 
+13 13 AutomaticPropertiesVideo
+•	Có ví dụ về autoProperties 
+ 
+	Get là trả lại giá trị, set là gán giá trị
+10 1 ExceptionVideo
+•	Exception: chính là vấn đề nảy sinh khi chúng ta thực thi chương trình, một exception trong C# chính là phản hồi về tình huống ngoại lệ xảy ra khi chương trình đang chạy
+•	C# cung cấp cho chúng ta cách xử lý exception bằng cách xử dụng 4 keywords là : try, catch, finally và throw
+•	Ví dụ về exception:
+ 
+Chương trình cho xe tự lái, thì chương trình cần phải phát hiện ra xe khác đang chạy đằng trước bỗng dung dừng lại, và phải thiết kế phần mềm coi như đây là vấn đề ngoại lệ
+10 2 ExceptionvsErrorVideo
+So sánh exception vs Error
+•	Khi mà viết code hoặc thực thi chương trình trong C# thì nó thường có những loại lỗi sau xảy ra
+-	Syntactical Error: lỗi cú pháp, ví dụ quên dấu ; và dùng ide để check lỗi
+-	Compilation Error: lỗi trong quá trình compile
+-	Runtime Error: chỉ xảy ra khi thực thi chương trình, ví dụ cố gắng đọc file mà không được cấp quyền
+-	Lỗi runtime error chính là một exception bởi vì nó sẽ termination chương trình đang chạy và để tránh termination chương trình đang chạy thì chúng ta cần handle exception đó.
+10 3 TryCatchVideo
+•	Nhắc lại lý thuyết: exception chính là runtime error và nó sẽ terminate chương trình đang chạy, để tránh chương trình bị terminate thì chúng ta cần handle exception đó với keywords: try-catch, finally, throw
+•	Cấu trúc của try-catch: gồm 2 phần
+-	Try: là block của code mà nó có thể gây ra exception và đi theo sau try-block thì có một hoặc nhiều catch
+-	Catch: là nơi mà bắt exception và xử lý exception
+-	Cú pháp: 
+ 
+•	Exception classes
+-	Exception trong C# được biểu diễn bởi class và các class này sẽ kế thừa trực tiếp hoặc gián tiếp từ class system.exception
+-	2 class kế thừa từ system.exception đó là system.applicationException và system.SystemException
+•	Exception hierarchy
+ 
+•	Exception Properties
+Exception có những thuộc tính sau:
+-	Message: cung cấp chi tiết nguyên nhân gây ra lỗi
+-	stackTrace: 
+-	InnerException: khi catch một exception thì có nhiều khả năng chúng ta throw lại exception mới, thì khi mà chúng ta Re-write một exception mới thì chúng ta có thể pass original exception vào trong InnerException
+-	HelpLink: đưa ra một số link C# dựng sẵn
+-	Data: thuộc tính cho phép ta lock thêm một số thông tin hữu ích, hiển thị dữ liệu dưới dạng key value
+-	TargetSite: chỉ ra tên method gây ra exception  
+10 6 FinallyVideo
+•	Finally: dùng để cleanup object mà nó holding external resources, việc cleanup object này sẽ diễn ra ngay lập tức ngay cả khi exception được throw ra
+•	Ví dụ: chương trình thao tác với database mà chúng ta phải tạo ra connect tới db thì object lưu trữ connection tới db đó thì chúng ta gọi đó là object holding external resources tức là nguồn tài nguyên bên ngoài, số lượng connect đến db có hữu hạn chính vì vậy khi sử dụng xong thì phải đóng lại connection đó. Trong trường hợp chương trình gặp exception đó, trước khi mà chúng ta đóng connection thì chúng ta phải đợi barbage collection sẽ cleanup object thì có thể diễn ra chậm hơn và gây ra trường hợp giới hạn connect db chính vì vậy phải sử dụng finally. Bởi vì finally sẽ cleanup object ngay lập tức
+•	Ví dụ code:
+ 
+
+10 7 ThrowVideo
+•	Tự hỏi rằng làm thế nào để ném ra một exception
+•	Trả lời: sử dụng câu lệnh throw
+•	Trường hợp tự throw ra exception
+-	Khi method không thể hoàn thành chức năng mà chúng ta định nghĩa cho nó, ví dụ:một parameter cho method truyền vào giá trị invalid
+ 
+-	Gọi tới một object mà trạng thái object không cho chúng ta làm điều đó. Ví dụ:
+Cố gắng viết vào readonly file thì trong trường hợp trạng thái file đó sẽ không cho phép thực hiện operation write
+ 
+-	Khi argument của một method causes exception thì trong trường hợp này nên bắt original exception và throw ra instance ArgumentException
+ 
+10 9 CustomExceptionVideo
+•	Custom Exception: Trong C# chúng ta có thể tạo ra customer exception bằng cách kế thừa exception class hoặc từ ApplicationException
+•	Microsoft: warning chúng ta nên tạo ra customException kế thừa trực tiếp từ exception thay vì sử dụng applicationexception. Bởi vì trong thực tế ko có quá nhiều lợi ích từ api exception
+•	Ví dụ:
+ 
+ 
+10 12 ExceptionFilterVideo
+•	Exception filter là một trong những major feature mới của C# 6.0, nó cho phép chúng ta chỉ định condition trong catch block
+ 
+11 1 GenericVideo
+•	Generic: được thêm vào .NET Framework từ version 2.0 trở đi, và cho phép chúng ta delay việc chỉ định datatype của những thành phần trong một class hoặc trong một method cho đến khi sử dụng trong chương trình. Hay nói cách khác generic cho phép chúng ta viết ra những class hay method có thể làm việc với bất kể loại datatype nào
+•	Ưu điểm của  generic: 
+-	Maximize code reuse, hỗ trợ type safety và performance
+-	Use case phổ biến nhất của generic là tạo ra collection classes
+-	Tạo ra generic ở trên interface, classes, method, event và trên delegate
+-	Thông tin về generic data type có thể lấy ra tại thời điểm runtime bằng cách sử dụng reflextion
+11 2 GenericClass Video
+•	Generic class nó sẽ đóng gói các operation mà không chỉ định tới loại data type cụ thể nào 
+•	Có thể tạo class trở thành generic class bằng cách thêm kí hiệu <T> 
+ 
+ 
+ 
+11 4 GenericMethod Video
+
+•	Trong C# để biến method trở thành generic thì cần phải add thêm kí hiệu <T> và sau tên method trước dấu mở ngoặc để truyền parameter
+ 
+•	Ví dụ:
+ 
+11 5 GenericInterface Video
+•	Generic interface cũng tương tự như generic class, chúng ta có thể define ra parameter T ở mức interface và method ở trong interface đó thì cũng có thể sử dụng parameter này, và những method ở trong class mà class implement generic interface cũng cần phải inplement parameter T
+•	Ví dụ:
+ 
+11 6 Collection Video
+•	Collection: trong C# cung cấp một số class đặc biệt để có thể lưu trữ giá trị hoặc object theo chuỗi cụ thể gọi là collection
+•	Có 2 loại collection là : non-generic collection và generic collection 
+•	2 loại collection này chia sẻ với nhau một số điểm chung sau
+-	Tất cả đều implement loại interface IEnumblerable bởi vậy chúng ta có thể sử dụng vòng lặp foreach để truy cập đến các item trong collection
+-	Tất cả đều có thể copy tới mảng sử dụng method copyto
+-	Tất cả index collection tron namespace System.collection đều sử dụng 0-indexed
+-	Một số collection đều có capacity, một số khác có count, một số thì có cả 2. Capacity cho chúng ta biết collection đấy chứa bao nhiêu item, còn count thì cho chúng ta biết hiện thời có bao nhiêu item
+•	Non-generic collections: nó sẽ store item giống như object có nghĩa rằng là item của thể loại non-generic collection có thể là bất kể loại data type nào. Chính vì vậy khi mà chúng ta retrieving, get lại item của loại collection này thì sẽ cần cast trở về một loại datatype cụ thể
+•	Trong bài này sẽ có 3 loại non-generic collection
+-	ArrayList
+-	HashTable
+-	SortedList
+•	Generic collection : bên trong sẽ lưu trữ element dưới dạng array chính vì vậy phải chỉ định data type khi sử dụng generic collection và không cần phải boxing và casting item này. Trong bài này sẽ có 2 loại generic collection
+-	List
+-	Dictionary
+11 7 ArrayList Video
+•	Trong C# thì ArrayList khá giống với array ngoại trừ chúng ta không cần phải chỉ định kích thước cho arraylist và không cần phải chỉ định datatype cho arraylist, khi add item cho arraylist thì tự động kích thước của arraylist được tăng lên
+•	Cú pháp
+ 
+•	Properties của arraylist bao gồm:
+-	Capacity: cho phép get hoặc set số lượng element ở trong một  
+-	Count: trả về số lượng element mà arraylist đang chứa.
+•	Common method 
+-	Add(): cho phép chúng ta thêm single element vào cuối của một arraylist
+-	 AddRange(): cho phép chúng ta add element từ một collection khác vào arraylist
+-	Insert(): insert một element vào một vị trí mà ta chỉ định trong arraylist
+-	insertRange: cho phép insert element từ một collection vào arraylist từ một vị trí mà ta chỉ định
+-	remove(): cho phép xoá element mà ta chỉ định từ arraylist
+-	removeRange(): xoá một range element ra khởi arraylist
+-	Containts: kiểm tra element cụ thể có tồn tại trong arraylist hay không, nếu tồn tại trả về true và nếu không trả về false
+11 9 SortedList Video
+•	Sortedlist collection cho phép chúng ta lưu trữ dưới dạng key value pairs, dưới dạng khoá và giá trị giống như hashtable, tên là sortedlist thì mặc định sắp xếp theo thứ tự tăng dần và sortedlist có thể implement cả 2 interface IDictionary & ICollection nên có thể truy cập vào item của sortedlist bằng key hoặc index
+•	Cú pháp: 
+ 
+•	Thuộc tính cơ bản của sortedlist(common properties)
+-	Capacity: cho phép chúng ta get và set số lượng item mà một sortedlist có thể chứa
+-	Count: trả về tổng số item mà hiện giờ sortedlist đang chứa
+-	Keys: trả về key mà sortedlist chứa
+-	Values: trả về giá trị mà sortedlist chứa
+•	Method cơ bản của sortedlist(common method)
+-	Add: thêm item với key và value vào trong sortedlist và tự động sortedlist sẽ order vào đúng vị trí của nó
+-	Remove: xoá item ra khỏi sortedlist dựa trên key mà chúng ta truyền vào
+-	Clear: xoá tất cả item trong sortedlist
+-	Contains/containskey: kiểm tra xem key có tồn tại trong sortedlist hay không 
+-	Containsvalue: kiểm tra xem value có tồn tại trong sortedlist hay không.
+11 11 HashTableVideo
+•	hashTable: trong C# sẽ cho phép chúng ta có thể lưu dưới dạng key-value pairs(dạng khoá và giá trị). Bên trong hashtable sẽ băm khoá của chúng ta thành hashcode và hashcode này sẽ được lưu ở different bucket vì vậy khi lấy ra một giá trị thì thực ra hash table sẽ match hashcode đó với key của chúng ta và sẽ tăng performent lúc tìm kiếm 
+•	Cú pháp:
+ 
+•	Thuộc tính cơ bản(common Properties):
+-	Count : trả lại tổng số cặp key-value mà hashtable đang chứa, hashtable không có thuộc tính capacity
+-	Keys: trả lại tập hợp mà hashtable đang có dưới dạng ICollection
+-	Values: để lấy lại tập hợp value trong hashtable
+•	Method cơ bản của hashtable(common methods)
+-	Add: cho phép chúng ta add item dưới dạng key value vào trong hashtable
+-	Remove: cho phép xoá item với key chúng ta chỉ định từ hashtable
+-	Clear: xoá tất cả item trong hashtable
+-	Containskey: kiểm tra hashtable có chứa key chúng ta truyền vào hay không
+-	containsValue: kiểm tra value truyền vào có tồn tại hay không
+11 13 DictionaryVideo
+•	Dictionary: trong C# giống quyển từ điển tiếng anh, bao gồm những từ và giải nghĩa cho từ đó thì tương tự như vậy dictionary là tập hợp của key và value, trong đó có thể key là từ và value là giải nghĩa
+•	Dictionary là loại generic collection, chính vì vậy chúng ta cần sử dụng là <Tkey, TValue>, tất cả generic collection đều được include trong namespace gọi là system.collection.Generic
+•	Cú pháp
+ 
+•	Thuộc tính cơ bản của Dictionary(Common Properties)
+-	Count: trả về số lượng element đang tồn tại trong dictionary đó, ngoài ra có thể lấy ra danh sách <TKey, TValue>
+•	Phương thức của dictionary(Common method)
+-	Add: cho phép thêm item vào trong dictionary đó
+-	Remove: cho phép xoá element với key chỉ định
+-	Clear : xoá tất cả item trong dictionary
+-	ContainsKey/ConTainsValue: kiểm tra xem value truyền vào có tồn tại hay không
+11 15 ChoosingCollectionVideo
+Chọn collection phù hợp trong C#
+•	Non-generic collection: cho phép store item dưới dạng object ở bất kì loại datatype nào. Trong Non-generic collection có 3 loại:
+-	ArrayList: hoạt động như mảng cho phép chúng ta lưu danh sách của item, chẳng hạn lưu danh sách của product
+-	Hashtable: lưu trữ dưới dạng key-Value
+-	SortedList: muốn lưu trữ dưới dạng Key-Value nhưng lại muốn key được sắp xếp thì không phải làm nhiệm vụ sorted hay compare thì nên sử dụng sortedlist
+•	List thì giống arraylist
+•	Dictionary giống hashtable
+AnnotationVideo
+•	Annotation: là chuỗi của attribute mà chúng ta có thể thêm vào trong một class để apply validation rules tới class của chúng ta
+•	Ví dụ: 
+ 
+•	Về cơ bản data annotations chỉ là thuộc tính tức là chỉ là metadata, tự thân nó sẽ khôn validate để xem giá trị gán vào có là validate hay không mà để kiểm tra xem là thuộc tính của chúng ta có được valid hay không thì cần sử dụng validator class
+ 
+AnonymousMethodVideo
+•	Anonymouse method: là phương thức nặc danh, có nghĩa là có thể tạo ra phương thức mà không phải chỉ định tên. Trong C# để tạo ra một phương thức nặc danh thì cần sử dụng từ khoá delegate
+ 
+•	Phương thức nặc danh có đặc tính có thể access tới biến mà được khai báo bên ngoài nó
+ 
+•	Tuy nhiên biến được khai báo bên trong phương thức nặc danh thì bên ngoài không access được 
+•	Thông thường sử dụng phương thức nặc danh để envent handling
+ 
+AnonymousTypeVideo
+•	C# cung cấp cho chúng ta một cách thức tiện lợi để có thể đóng gói một số thuộc tính readonly vào trong một object mà không cần phải chỉ định kiểu cho object đó
+ 
+•	Phạm vi của anonymous type: cũng giống như biến local thông thường và chúng ta chỉ có thể sử dụng anonymous type trong method mà chúng ta đã defined, tuy nhiên khác với biến thông thường là có thể truyền nó như parameter vào một cái method. Anonymous type không thể truyền parameter vào method, ngoại trừ method đó sử dụng từ khoá dynamic
+ 
+•	Anonymous types hay được sử dụng trong linq
+ 
+DelegateVideo
+•	Delegate: một function thì có thể có một hoặc nhiều parameter thậm chí là không có paratmer nào và parameter có thể thuộc bất kì loại datatype nào. Tuy nhiên nếu trong trường hợp muốn truyền một function giống parameter vào một function khác thì làm sao để làm đc việc đó.
+•	Trong c# nếu bạn muốn khai báo một con trỏ hàm tức là muốn truyền một function giống parameter tới function khác thì chúng ta sử dụng từ khoá delegate. Thì delegate là kiểu references data type mà nó giữ references tới method đó
+ 
+•	Khi biến Print thành delegate thì nó có thể trỏ tới bất kì method nào nhận parameter là kiểu int mà trả lại là kiểu void
+•	Ví dụ:
+ 
+•	Để thực thi delegate là references tới method nên chúng ta có thể invoked một delegate giống như invoked một method
+ 
+EventVideo
+•	Cho ví dụ: Microsoft khởi động một sự kiện dành cho lập trình viên, giới thiệu về tính năng mới của sản phẩm thì khi Microsoft làm ra sản phẩm như vậy họ cần phải thông báo cho dev biết về sự kiện đó bằng cách gửi mail hoặc quảng cáo qua google hay facebook. Trong trường hợp này chúng ta coi Microsoft là publisher và sau đó người ta phải notifies tới dev về sự kiện đó, khi dev biết về event thì sẽ phải đăng kí tức là chúng ta là subcribers của event và khi event hiện ra chúng ta sẽ phải tham dự(attend) hay nói cách khác là handle event đó.
+•	 
+•	Trong C# thuật ngữ event cũng tương tự như phía trên cũng sẽ có publisher(là nơi lưu và write ra event), cũng có subscriber để register đến event đó. Có notification publisher notify đến subscriber và nó cũng có handle để subscriber có thể handle event
+•	Event đơn giản chỉ là đóng gói của delegate
+ExtensionMethodVideo
+•	Extension method: cho phép chúng ta thêm các method vào một kiểu data type đã tồn tại mà không cần phải tạo ra class mới kế thừa từ data type, datatype có thể là kiểu int, string.v.v.v. Chúng ta không cần phải recompiling hoặc modify sources code của type original
+ 
+LambdaExpressionVideo
+•	Lambda expression cho phép chúng ta viết ra những method một cách tiện lợi
+•	Ví dụ: 
+ 
+ 
+OptionalAndNamedParamVideo
+•	Optional and Named Parameter
+ 
+PrivateVsPublicAssemblyVideo
+•	Private Assembly: Trong C# có 3 loại assembly
+-	Private Assembly: chỉ sử dụng bởi một ứng dụng
+-	Private Assembly: sẽ được stored trên directory hoặc sub-directory
+-	Private Assembly không cần strong name
+•	Public Assembly:
+-	Public Assembly: có thể sử dụng bởi multiple application(viết xong project có thể biến nó thành một assembly)
+-	Public Assembly: được stored trên GAC(Global Assembly Cache)
+-	Public Assembly: đòi hỏi phải có Strong name
+QueryExpressionVideo
+•	LinQ(Language Integrated Query) là cú pháp cho phép chúng ta truy vấn dữ liệu có cấu trúc nó được built in trong C# để chúng ta có thể save nhận dữ liệu từ data source khác nhau
+ 
+ 
+•	Cú pháp query linq có 2 cách:
+-	Query syntax
+ 
+-	Method syntax:
+ 
+NullConditionalVideo
+ 
+•	Từ C# 6.0 trở đi đã có operator đặc biệt gọi là null conditional,sẽ giúp cho chúng ta không phải viết code dài dòng và lặp đi lặp lại nữa, và sẽ có 2 kiểu cú pháp đó là 
+-	?. hay còn gọi là elvis operator
+-	?[ 
+  
+12 1 Concurrency Video
+•	Concurrency: là cố gắng làm nhiều hơn một việc tại một thời điểm, chẳng hạn chúng ta có: 
+-	ứng dụng end-user thì ứng dụng này có thể sử dụng concurrency để phản hồi lại những user input mà khách hàng nhập lên form trong khi nó vẫn đang viết request đó xuống database
+-	ứng dụng server nó sẽ cần phản hồi rất nhiều request client gửi lên thì server application có thể sử dụng concurrency để phản hồi yêu cầu thứ hai trong khi vẫn đang cố gắng hoàn thành phản hồi đầu tiên
+12 1 ThreadVideo
+•	Process and Thread
+•	Tiến trình(Precess) là chương trình đang chạy trên máy tính, và một chương trình thì có thể associated tới nhiều process. Ví dụ có thể mở ra chương trình caculater trên máy tính và mở nhiều instances của calculator và mõi instances đấy tương đương với một process
+•	Ví dụ:
+ 
+•	Thread thực ra chính là sắp xếp, tức là tập con của process. Có nghĩa rằng là trong một process thì có một hoặc nhiều thread và các thread này được đặt lịch để chạy chương trình của chúng ta. Thread có thể hiểu là đơn vị cơ bản mà hệ điều hành sẽ allocate resource để có thể chạy ứng dụng
+•	Trong C# những chươngg trình như Console được viết từ đầu đến giờ thì tự động thằng CLR và hệ điều hành sẽ tạo ra thread mặc định cho chúng ta và những chương trình đó chạy trên thread
+12 3 SynchronousVsAsyncVideo
+•	MultiThreading: đến giờ chúng ta vẫn đang làm việc với console appilication và sử dụng thread để thực thi chương trình hay còn gọi là single thread. Tuy nhiên trong C# hay .NET Framework cho phép sử dụng multithreading(đa chương trình). Multithreading gọi là dạng thức của concurrency
+•	Trong một máy tính thì CPU có rất nhiều core và sẽ là không hợp lý nếu chương trình làm rất nhiều việc trong khi chỉ sử dụng một core để làm việc trong khi core khác thì idle. Thường thì chúng ta có thể split chương trình thành nhiều tác vụ và tác vụ đấy có thể chạy trên nhiều thread khác nhau và thread đấy có thể chạy trên nhiều core khác nhau
+•	Synchoronous Programming Model: (Lập trình đồng bộ) trong mô hình lập trình này thì một thread được assigned cho một task thì nó sẽ bắt đầu làm việc trên task đó và chỉ khi task đó hoàn thành thì thread đấy mới available và làm việc với task tiếp theo. Mô hình lập trình đồng bộ có thể sử dụng single thread hoặc multiple thread
+•	Trong trường hợp sử dụng Single Thread: thì có nghĩa là nó chỉ sử dụng một thread để làm việc với những tác vụ chương trình
+ 
+•	Lập trình đồng bộ có hỗ trợ làm việc trên multiple thread: có nghĩa là chúng ta sẽ sử dụng nhiều thread để làm việc song song với tác vụ trên máy
+ 
+	Một thread chỉ làm việc với một tác vụ tại cùng một thời điểm, chỉ khi nó hoàn thành tác vụ đấy thì nó mới available cho tác vụ tiếp theo
+•	Asynchronous Programming(lập trình bất đồng bộ): là một dạng thức của concurrency, trong lập trình bất đồng bộ một thread sẽ làm việc với nhiều tác vụ một lúc. Giả sử chúng ta có một thread và ta sẽ assigned một tác vụ cho nó thì thread đấy sẽ thực hiện tác vụ đấy và nó không cần đợi khi tác vụ đấy xong, có thể pause giữa chừng để nó làm việc với tác vụ thứ 2 và save current state của tác vụ một lại
+  
+	Trong lập trình bất đồng bộ một thread sẽ làm việc với multiple task tại cùng một thời điểm
+12 4 ThreadClassVideo
+ 
+•	Vòng đời của thread
+ 
+•	Properties của thread
+-	threadState: chúng ta có thể lấy ra trạng thái của thread hiện tại
+-	Priority: sử dụng multi thread để get hoặc set độ ưu tiên đó 
+-	CurrentContext: lấy được current context mà hiện thời thread đang chạy
+-	IsAlive: trả về true nếu thread được start và nó chưa bị stop, còn trong trường hợp khác là false
+-	IsBackground: get hoặc set xem thread có phải background hay không
+12 5 ThreadClass2Video
+•	C# có 2 loại thread: 
+-	Foreground Thread: là cái tiếp tục chạy ngay cả khi chúng ta thoát chương trình và tiếp tục chạy
+-	Background thread: là những thread bị terminate khi mà tất cả foreground thread bị đóng. Có nghĩa là ngay cả khi background thread chưa hoàn thành công việc nhưng mà foreground thread bị close rồi thì background thread cũng sẽ bị terminate. Thường thì chúng ta sẽ sử dụng Background thread cho tác vụ không quá quan trọng
+-	Default khi tạo thread sẽ là foreground
+•	Main Thread: thread được thực thi đầu tiên trong process thì sẽ được gọi là main thread
+-	Trong một chương trình C# khi mà bắt đầu chạy thì main thread sẽ được tự động tạo ra và những thread được tạo ra bằng cách sử dụng thread class
+•	Thread method:
+-	Start(): start thread
+-	Sleep(int): pause thread trong khoảng thời gian truyền vào(mili second)
+-	Abort(): nó sẽ raises ra exception ThreadAbortException và nếu không sử dụng method reset abort() thì thread sẽ bị terminate
+-	Join(): tất cả thread nằm sau phương thức join sẽ phải đợi cho đến khi thread đang gọi join hoàn thành thì nó mới được thực thi
+12 7 TaskAsyncAwait Video
+•	Lập trình bất đồng bộ là một dạng thức của concurrency và để thực thi concurrency thì lập trình bất đồng bộ cần sử dụng khái niệm futures hay là callback để tránh việc sử dụng thread không cần thiết
+•	Future hoặc callback là trong lập trình bất đồng bộ có thể gọi tới method nhưng chúng ta không cần phải đợi đến khi method hoàn thành xong công việc thì mới thực thi tới method tiếp theo. Trong lập trình bất đồng bộ ta sẽ gọi tới method xong sẽ quên method đó đi, trong tương lai sau một khoảng thời gian method đó hoàn thành và trả lại giá trị thì lúc ta lại xử lý tiếp với method đó. Với việc trả lại giá trị thì trong .NET nó sẽ sử dụng Task hoặc Task<TResult>
+•	Trong C# 5.0 nó có thể đơn giản hoá lập trình bất đồng bộ cho chúng ta bằng cách sử dụng 2 từ khoá Async và await
+•	Từ khoá Async sẽ xác định một method của chúng ta là bất đồng bộ, ví dụ:
+ 
+•	Asynchronous method sẽ trả lại 3 loại giá trị: 
+-	Void: không trả lại gì cả và trong lập trình bất đồng bộ khi mà sử dung void có nghĩa là “fire và forget” gọi tới method đó và quên luôn(không cần biết là có hoàn thành hay không)
+-	Task: không trả lại giá trị gì nhưng cho phép caller tức là thằng container gọi tới method biết rằng là method đó có finish hay không. Tức là trong tương lai method1 hoàn thành thì thằng caller biết là đã finish để xử lý tiếp
+-	Task<T>: trả lại giá trị
+•	Await: đợi, tức là gọi đến function Asynchronous bằng cách xử dụng await
+ 
+9 0 FileStreamPathDirectory Video
+•	I/O: trong .NET Framework nó cung cấp một namespace gọi là system.IO và namespace này chứa rất nhiều class cho phép chúng ta có thể đọc, ghi file hoặc data streams một cách dễ dàng
+•	File là file chứa dữ liệu như file word, excel và save nó lại thì được gọi là file. Bên trong file là tập hợp byte và những byte này sẽ được lưu ở trên ổ đĩa, một file thì luôn được chỉ định tên và đường dẫn đến file đó và khi chúng ta viết một chương trình mở file đó ra cho nhiệm vụ đọc, ghi thì file đó sẽ biến thành stream
+•	Stream(Luồng): nó đơn giản là sequence của byte, tức là tập hợp của các byte cho phép chúng ta có thể đọc, và ghi những byte đó vào trong ổ đĩa hoặc memory
+•	Directory(thư mục): là container cho các file, file khi được tạo ra sẽ cần nơi lưu vào và nơi lưu đấy sẽ nằm trong thư mục
+•	Path: cung cấp đường dẫn đến file hoặc thứ mục
+9 1 Path Video
+•	Một path chỉ định ra location vào file và directory của chúng ta, path đơn giản là một chuỗi, là một string instance. Path class sẽ cung cấp cho chúng ta method và properties để process trên string instances đó, và path class sẽ hoạt động cross-platform(chạy được với hệ thống windown và linux)
+•	Path gồm có 2 loại là đường dẫn tuyệt đối và đường dẫn tương đối
+-	C:\Windows\System32 là đường dẫn tuyệt đối
+-	Windows\System32 là đường dẫn tương đối, nếu mình đang ở ổ C và copy đường dẫn và dán lại thì có thể đến đúng system32 tuy nhiên nếu đang ở C:\Program files thì paste thì sẽ không đi được đến system32 bởi vì trong Program file không có system32(phụ thuộc vào điểm đứng)
+•	Phương thức cơ bản của path class(Method)
+-	GetDirectoryName: trả lại tên của directory cho một path mà chúng ta truyền vào, ví dụ: 
+ 
+-	GetFileName:trả lại cả tên file và phần mở rộng của file đó cho đường dẫn mà chúng ta truyền vào, ví dụ:
+ 
+-	GetFileNameWithoutExtension: không trả lại phần extension mà chỉ trả lại file name
+-	GetFullPath: trả lại đường dẫn tuyệt đối cho path mà ta truyền vào
+-	GetExtension: chỉ trả lại extension mà không trả lại file name
+-	9 3 DirectoryInfo Video
+•	Directoryinfo class cũng là class của system.IO. Directory cung cấp cho chúng ta những method có thể tạo, move, có thể duyệt các directory hoặc subdirectories
+•	Để tạo ra instance của directoryinfo class thì chúng ta sử dụng cú pháp sau
+-	DirectoryInfo di = new DirectoryInfo(path)
+•	Common properties Directory
+-	Exists: cho biết thư mục đấy đã tồn tại hay chưa, nếu trong trường hợp chưa tồn tại sẽ trả lại là false và ngược lại
+-	Name: trả lại tên của directory
+-	Parent: trả lại parent directory của thư mục hiện tại
+-	FullName: trả lại full path của directory
+•	Common methods của directory
+-	Create: tạo ra directory
+-	Delete(Boolean): xoá đi directory hiện tại, trong trường hợp directory chứa thư mục con hoặc file truyền vào biến Boolean là false thì nó sẽ báo lỗi(không empty và không xoá được), còn nếu muốn xoá được thì phải trả về true
+-	GetDirectories(String, SearchOption): trả lại danh sách những directory nằm trong directory hiện tại
+-	GetFiles(String, SearchOption): trả lại danh sách các file nằm trong file directory
+9 5 FileInfo Video
+•	FileInfo class cũng là một class của namespace system.IO, nó sẽ cung cấp cho chúng ta những properties và những method cho việc tạo, moving, copy, delete và mở file
+•	File là tập hợp của những byte và khi file được mở ra cho nhiệm vụ đọc hoặc ghi thì nó sẽ trở thành stream(luồng) và fileinfo class sẽ hỗ trợ tạo object thuộc dạng filestream 
+•	Cú pháp tạo:
+-	FileInfo fs = new FileInfo(path)
+•	Common properties()
+-	Name: trả lại tên file
+-	FullName: trả lại full đường dẫn đến file đó
+-	Length: trả lại size của byte theo file
+-	Extension: trả lại phần mở rộng của file
+-	IsReadOnly: cho biết file có readonly hay không
+-	Exists: cho biết file có tồn tại hay không, trả về true là tồn tại và ngược lại
+•	Common method
+-	Open(FileMode, FileAccess): cho phép open một file để đọc, ghi hoặc là vừa đọc vừa ghi. Khi sử dụng method open thì sẽ truyền vào 2 parameter đó là fileMode và FileAccess>FileMode là sẽ chỉ định: muốn open hay muốn append vào cuối file, FileAccess: muốn đọc, ghi hay vừa đọc vừa ghi
+-	Create(): tạo file trên đĩa
+-	Moveto(string destFile): cho phép chuyển file tới vị trí mới và có thể đổi tên file
+-	Delete(): xoá file
+9 6 Stream Video
+•	Stream class: file class là tập hợp các byte và khi mở file ra để đọc và ghi thì nó sẽ biến thành luồng của byte. Và system.IO nó có một abstract class gọi là stream class cung cấp cho ta những properties và những method cơ bản để có thể đọc ghi mảng của những byte này
+ 
+•	Common properties(thuộc tính của luồng)
+-	CanRead/CanWrite/CanSeek: hỗ trợ cho việc đọc, ghi hay việc tìm kiếm 
+-	Length: trả về độ dài stream theo byte
+-	Position: có thể get set vị trí con trỏ trong luồng đó
+•	Common methods
+-	Write(Byte[], Int32, Int32): luồng cho phép chúng ta có thể lưu một mảng những byte vào trong ổ đĩa và cung cấp thêm 2 parameter kiểu int32 là để chỉ vị trí của byte mà chúng ta muốn ghi vào và độ dài số lượng byte muốn ghi
+-	Read(Byte[], Int32, Int32): cho phép đọc một mảng các byte và cung cấp đọc từ vị trí nào tuỳ theo số lượng byte muốn đọc
+-	Seek(Int64, SeekOrigin): cho phép set lại position trong luồng
+9 7 FileStream Video
+•	FileStream: khi mở file cho nhiệm vụ đọc và ghi thì file đó sẽ trở thành stream và filestream là một trong những luồng. FileStream sẽ support tác vụ đọc và ghi những byte từ file vật lý dù file đó là file txt, .exe, .jpg.v.v.
+•	File stream sẽ hỗ trợ đọc và ghi đồng bộ và bất đồng bộ
+•	Common properties
+-	CanRead, CanWrite: cho phép stream hiện tại cho phép đọc hay không
+-	Length: trả về kích cỡ dưới dạng byte của một stream
+-	IsAsync: file stream đấy được mở ở dạng đồng bộ hay bất đồng bộ
+•	Common method
+-	Write(Byte[], Int32, Int32): ghi block hoặc byte vào trong ổ đĩa
+-	Read(Byte[], Int32, Int32): cho phép đọc block hoặc byte từ luồng và ghi dữ liệu đấy vào buffer
+9 9 StreamReaderStreamWriter Video
+•	StreamReader/StreamWriter class: .NET Framework cung cấp 2 abstract class là TextReader và TextWriter cho phép ta có thể đọc và ghi text file, StreamReader/StreamWriter chính là implementation của TextReader/Writer
+ 
+•	Cú pháp:
+-	StreamReader sr = new StreamReader(path);
+-	StreamWriter sr = new StreamWriter (path);
+•	Common Methods
+StreamReader
+-	Read(): đọc các kí tự trong stream và trả về vị trí của kí tự đó, trả lại kiểu Int32. Còn khi đã đọc hết luồng thì trả về -1
+-	ReadLine(): trả về dòng tiếp theo của stream đó, và trả lại null nếu đã đọc hết
+-	Peak(): trả lại kiểu số cho kí tự tiếp theo cần đọc và sẽ trả lại -1 nếu hết cái đọc
+StreamWriter
+-	Write(string): cho phép write string vào trong stream và từ stream đó tự động sắp xếp vào trong phisical
+-	WriteLine(string): Viết một chuỗi vào trong Luồng và sẽ terminate bởi dấu xuống dòng
+
 
 
 
