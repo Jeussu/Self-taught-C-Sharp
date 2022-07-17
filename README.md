@@ -1,3 +1,8 @@
+![CodeLearn_certification (3)](https://user-images.githubusercontent.com/94780400/179392755-3e2e32bd-1a5a-4bad-83ab-ef587a44808d.png)
+https://codelearn.io/certification/yzk3zgi5
+![CodeLearn_certification (4)](https://user-images.githubusercontent.com/94780400/179392819-9ff38d41-faa7-4665-88f2-90941a351b7e.png)
+https://codelearn.io/certification/yzk3zgi5
+<h2>if you want see details my report about C#, Please click to link here: https://github.com/Jeussu/Self-taught-C-Sharp/blob/master/Note%20C%23.pdf</h2>
 FirstProgram C#
 <h2>CourseIntroduction</h2>
 Mục tiêu khoá học:
